@@ -129,7 +129,7 @@ class Wappalyzer
 		$result->html = substr($response, $headerSize);
 
 		$result->html = mb_check_encoding($result->html, 'UTF-8') ? $result->html : utf8_encode($result->html);
-		
+
 		$headers = trim(substr($response, 0, $headerSize));
 		$headers = preg_split('/^\s*$/m', $headers);
 		$headers = end($headers);
@@ -190,4 +190,12 @@ class Wappalyzer
 			}
 		}
 	}
+
+    public function set_url($url) {
+        $this->url = $url;
+    }
+
+    public function get_categories() {
+        return $this->categories;
+    }
 }
